@@ -27,6 +27,7 @@ export default function Footer() {
             <li><Link href="/#dashboard" className="hover:text-[#00D4FF] transition-colors">גשר הפיקוד</Link></li>
             <li><Link href="/#pricing" className="hover:text-[#00D4FF] transition-colors">מסלולים</Link></li>
             <li><Link href="/#faq" className="hover:text-[#00D4FF] transition-colors">שאלות נפוצות</Link></li>
+            <li><Link href="/blog" className="hover:text-[#00D4FF] transition-colors">בלוג</Link></li>
           </ul>
         </div>
         <div>
