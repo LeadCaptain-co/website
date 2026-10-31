@@ -1,0 +1,30 @@
+{
+  "name": "BlogPost",
+  "type": "object",
+  "properties": {
+    "title": { "type": "string", "description": "Post title (H1)" },
+    "slug": { "type": "string", "description": "URL slug, unique: /blog/<slug>" },
+    "excerpt": { "type": "string", "description": "Short summary shown on the blog index" },
+    "content": { "type": "string", "description": "Post body in Markdown" },
+    "cover_image": { "type": "string", "description": "Cover image URL" },
+    "author": { "type": "string", "description": "Author display name" },
+    "tags": { "type": "array", "items": { "type": "string" }, "description": "Post tags" },
+    "status": { "type": "string", "enum": ["draft", "published"], "default": "draft" },
+    "published_at": { "type": "string", "description": "ISO date the post went live" },
+    "meta_title": { "type": "string", "description": "SEO <title>; falls back to title" },
+    "meta_description": { "type": "string", "description": "SEO meta description; falls back to excerpt" },
+    "meta_keywords": { "type": "string", "description": "Comma separated meta keywords" },
+    "canonical_url": { "type": "string", "description": "Canonical URL override" },
+    "og_title": { "type": "string", "description": "Open Graph / Twitter title; falls back to meta title" },
+    "og_description": { "type": "string", "description": "Open Graph / Twitter description" },
+    "og_image": { "type": "string", "description": "Open Graph image URL; falls back to cover image" },
+    "noindex": { "type": "boolean", "default": false, "description": "Ask search engines not to index this post" }
+  },
+  "required": ["title", "slug"],
+  "rls": {
+    "create": { "user_condition": { "role": "admin" } },
+    "read": { "$or": [{ "status": "published" }, { "user_condition": { "role": "admin" } }] },
+    "update": { "user_condition": { "role": "admin" } },
+    "delete": { "user_condition": { "role": "admin" } }
+  }
+}

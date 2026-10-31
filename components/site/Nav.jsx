@@ -14,6 +14,7 @@ const links = [
   { href: "/#proof", label: "לקוחות", deg: "180°" },
   { href: "/#pricing", label: "מסלולים", deg: "270°" },
   { href: "/#faq", label: "שאלות", deg: "330°" },
+  { href: "/blog", label: "בלוג", deg: "350°" },
 ];
 
 export default function Nav() {
